@@ -28,7 +28,15 @@ app.put('/users',jsonParser,function(req,res){
 
 
 })
+app.post('/users',jsonParser,function(req,res){
+    if(req.body){
+        console.log(req.body)
+        users=[...users,req.body];
+        res.send(users)
+    }
 
+
+})
 
 app.listen(port, () => {
 console.log('da')
