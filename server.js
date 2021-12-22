@@ -1,10 +1,13 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT||80
 const bodyParser=require('body-parser')
 const jsonParser=bodyParser.json();
 
-let users=[{"email":"alexandr@gmail.com","firstName":"Alexandr","lastName":"Alexandrov","dateOfBirth":"1988-12-12","password":"111"},{"email":"pavel@gmail.com","firstName":"Pavel","lastName":"Petrov","dateOfBirth":"1998-12-12","password":"222"},{"email":"maksim@gmail.com","firstName":"Maksim","lastName":"Ivanov","dateOfBirth":"1928-10-10","password":"333"}]
+let users=[
+    {"email":"alexandr@gmail.com","firstName":"Alexandr","lastName":"Alexandrov","dateOfBirth":"1988-12-12","password":"111"},
+    {"email":"pavel@gmail.com","firstName":"Pavel","lastName":"Petrov","dateOfBirth":"1998-12-12","password":"222"},
+    {"email":"maksim@gmail.com","firstName":"Maksim","lastName":"Ivanov","dateOfBirth":"1928-10-10","password":"333"}]
 
 JSON.stringify(users)
 
@@ -39,5 +42,5 @@ app.post('/users',jsonParser,function(req,res){
 })
 
 app.listen(port, () => {
-console.log('da')
+console.log(port)
 })
